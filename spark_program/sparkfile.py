@@ -5,7 +5,7 @@
 
 import pyspark
 
-filee = sc.textFile("path of file")
+filee = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv"")
 
 #it will give first line from csv file as a output
 filee.first()
