@@ -5,7 +5,7 @@
 
 import pyspark
 
-filee = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv"")
+filee = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv")
 
 #it will give first line from csv file as a output
 filee.first()
@@ -35,5 +35,12 @@ __________________________
 lRDD.count()
 
 Out[30]: 9
+
+__________________________
+
+
+
+
+
 
 
