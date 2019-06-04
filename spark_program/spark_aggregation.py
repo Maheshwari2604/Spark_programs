@@ -18,12 +18,12 @@ for i in orderitems.take(10):
 	print(i)
 
 #to filter
-orderfilter = orderitems.filter(lambda oi = int(oi.split(" , ")[1]) == 2)
+orderfilter = orderitems.filter(lambda oi : int(oi.split(" , ")[1]) == 2)
 
 for i in orderfilter.take(10):
 	print(i)
 
-orderitemsubtotal = orderfilter.map(lambda oi = float(oi.split(" , ")[4]))
+orderitemsubtotal = orderfilter.map(lambda oi : float(oi.split(" , ")[4]))
 
 for i in orderitemsubtotal.take(10):
 	print(i)
@@ -42,3 +42,32 @@ from operator import add
 orderitemsubtotal.reduce(add)
 
 orderitemsubtotal.reduce(lambda x, y: x + y)
+
+_________________________
+
+
+#flatMap
+a = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv")
+
+c = a.flatMap(lambda oi : oi.split(",")[2])
+#this will return a RDD
+_________________________
+
+#filter
+a = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv")
+
+d = a.filter(lambda oi = oi.split(",")[4] == 22)
+
+print i in d.take(10):
+	print(i)
+
+
+#conditions through lambda in spark
+orderitemfilter = d.reduce(add)
+
+orderitemfilter = d.reduce(lambda x,y: x + y)
+
+orderitemfilter = d.reduce(lambda x,y: x if(float(x.split(",")[4]) < float(y.split(",")[4])) else y )
+
+
+
