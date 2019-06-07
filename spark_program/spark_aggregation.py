@@ -70,4 +70,12 @@ orderitemfilter = d.reduce(lambda x,y: x + y)
 orderitemfilter = d.reduce(lambda x,y: x if(float(x.split(",")[4]) < float(y.split(",")[4])) else y )
 
 
+#Get count by status
+orderstatus = orders.map(lambda o: (o.split(",")[3],1))
 
+for i in orderstatus.take(10):
+	print(i)
+
+countbystatus = orderstatus.counByKey()
+
+countbystatus
