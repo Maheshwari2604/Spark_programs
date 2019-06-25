@@ -12,7 +12,7 @@
 orderitems = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv")
 
 #we can count a data by
-ordreitems.count()
+orderitems.count()
 
 for i in orderitems.take(10):
 	print(i)
@@ -49,17 +49,19 @@ _________________________
 #flatMap
 a = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv")
 
-c = a.flatMap(lambda oi : oi.split(",")[2])
+c = a.                                                                                                                                                                  flatMap(lambda oi : oi.split(",")[2])
 #this will return a RDD
 _________________________
 
 #filter
-a = sc.textFile("/FileStore/tables/Sacramentorealestatetransactions.csv")
+a = sc.textFie("/FileStore/tables/Sacramentorealestatetransactions.csv")
 
 d = a.filter(lambda oi = oi.split(",")[4] == 22)
 
 print i in d.take(10):
 	print(i)
+
+d = a.filter(lam)
 
 
 #conditions through lambda in spark
@@ -79,3 +81,15 @@ for i in orderstatus.take(10):
 countbystatus = orderstatus.counByKey()
 
 countbystatus
+
+
+
+#joins
+#join two variables by .join or .leftouterjoin to join two different variables
+#same concept as sql
+
+
+
+
+
+
